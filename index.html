@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Jabin Store 🛍️</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- ================= HEADER ================= -->
+
+    <header>
+      <h1>Jabin Store 🛍️</h1>
+
+      <div class="header-buttons">
+        <button id="wishlist-toggle">
+          ❤️ Wishlist (<span id="wishlist-count">0</span>)
+        </button>
+
+        <button id="cart-toggle">
+          🛒 Cart (<span id="cart-count">0</span>)
+        </button>
+      </div>
+    </header>
+
+    <!-- ================= CONTROLS ================= -->
+
+    <div class="controls">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search products..."
+        onkeyup="searchProducts()"
+      />
+
+      <select id="category-filter" onchange="filterProducts()">
+        <option value="all">All Categories</option>
+
+        <option value="electronics">Electronics</option>
+
+        <option value="fashion">Fashion</option>
+      </select>
+
+      <select id="sort-filter" onchange="sortProducts()">
+        <option value="default">Sort by</option>
+
+        <option value="low-high">Price: Low → High</option>
+
+        <option value="high-low">Price: High → Low</option>
+      </select>
+
+      <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </div>
+
+    <!-- ================= PRODUCT GRID ================= -->
+
+    <div id="product-container" class="product-grid"></div>
+
+    <!-- ================= CART SIDEBAR ================= -->
+
+    <div id="cart-sidebar" class="cart-sidebar">
+      <span class="close-sidebar" onclick="closeCart()"> × </span>
+
+      <h2>Your Cart 🛒</h2>
+
+      <div id="cart-items"></div>
+
+      <h3>Total: ₹<span id="cart-total">0</span></h3>
+
+      <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+
+    <!-- ================= WISHLIST SIDEBAR ================= -->
+
+    <div id="wishlist-sidebar" class="wishlist-sidebar">
+      <span class="close-sidebar" onclick="closeWishlist()"> × </span>
+
+      <h2>Your Wishlist ❤️</h2>
+
+      <div id="wishlist-items"></div>
+    </div>
+
+    <!-- ================= PRODUCT MODAL ================= -->
+
+    <div id="product-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()"> × </span>
+
+        <img id="modal-image" alt="Product Image" />
+
+        <h2 id="modal-name"></h2>
+
+        <p id="modal-price"></p>
+
+        <!-- ⭐ MODAL RATING (UNCHANGED) -->
+
+        <div id="modal-rating">⭐ ⭐ ⭐ ⭐ ⭐</div>
+
+        <!-- 🔢 QUANTITY BUTTONS -->
+
+        <div class="quantity-box">
+          <button onclick="decreaseQty()">−</button>
+
+          <span id="modal-qty"> 1 </span>
+
+          <button onclick="increaseQty()">+</button>
+        </div>
+
+        <button id="modal-add-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <script src="js/products.js"></script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
